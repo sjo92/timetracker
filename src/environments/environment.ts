@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    projectId: 'timetracker-fb2f6',
+    appId: '1:112330805237:web:d00104f74f673135e9dabc',
+    storageBucket: 'timetracker-fb2f6.appspot.com',
+    locationId: 'europe-west',
+    apiKey: 'AIzaSyB_m6mVQabLyyxjqmJrF339IcbxkioeWcA',
+    authDomain: 'timetracker-fb2f6.firebaseapp.com',
+    messagingSenderId: '112330805237',
+  }
 };
 
 /*
