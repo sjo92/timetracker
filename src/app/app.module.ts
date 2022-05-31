@@ -20,22 +20,25 @@ import { FullCalendarModule } from '@fullcalendar/angular'; // must go before pl
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
 import timeGridPlugin from '@fullcalendar/daygrid'; // a plugin!
 import listPlugin from '@fullcalendar/daygrid'; // a plugin!
+import interactionPlugin from '@fullcalendar/interaction';
 
 //Angular Material
 import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TimeEntryComponent } from './time-entry/time-entry.component';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
   listPlugin,
-  timeGridPlugin
+  timeGridPlugin,interactionPlugin
 ]);
 
 @NgModule({
   declarations: [
     AppComponent,
     CalendarComponent,
-    HeaderComponent
+    HeaderComponent,
+    TimeEntryComponent
   ],
   imports: [
     BrowserModule,
