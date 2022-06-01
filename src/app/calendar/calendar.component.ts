@@ -31,10 +31,16 @@ export class CalendarComponent implements OnInit {
   }
 
   handleDateClick(arg: any){
-    this.dialog.open(TimeEntryComponent, {
+    let dialogRef = this.dialog.open(TimeEntryComponent, {
       width: '300px',
       height: '470px',
       data: { dataKey: arg },
     });
+    dialogRef.afterClosed().subscribe(result => {
+    });
+    const dialogSubmitSubscription = 
+    dialogRef.componentInstance.submitClicked.subscribe(result => {
+    dialogSubmitSubscription.unsubscribe();
+  });
   }
 }

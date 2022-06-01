@@ -26,6 +26,7 @@ import interactionPlugin from '@fullcalendar/interaction';
 import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TimeEntryComponent } from './time-entry/time-entry.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -51,6 +52,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     provideFunctions(() => getFunctions()),
     provideStorage(() => getStorage()),
     BrowserAnimationsModule,
+    FormsModule, 
+    ReactiveFormsModule
     
   ],
   exports: [],

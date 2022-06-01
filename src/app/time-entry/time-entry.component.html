@@ -1,4 +1,37 @@
 <mat-form-field>
-    <mat-label></mat-label>
-    <input placeholder="Just a placeholder">
+  <h2 mat-dialog-title>Type your time</h2>
+
+  <mat-dialog-content [formGroup]="form">
+    <mat-form-field>
+      <input matInput
+            formControlName="date"
+             readonly>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput
+              placeholder="From"
+             formControlName="from">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput
+            placeholder="Till"
+           formControlName="till">
+</mat-form-field>
+      <mat-form-field>
+          <input matInput
+                  placeholder="Description"
+                 formControlName="description">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput
+                placeholder="Hours"
+               formControlName="hours">
+    </mat-form-field>
+   
+  </mat-dialog-content>
+  
+  <mat-dialog-actions>
+      <button class="mat-raised-button" (click)="close()">Close</button>
+      <button class="mat-raised-button mat-primary" (click)="saveMessage()">Save</button>
+  </mat-dialog-actions>
   </mat-form-field>
