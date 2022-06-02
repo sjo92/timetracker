@@ -1,37 +1,66 @@
-<mat-form-field>
-  <h2 mat-dialog-title>Type your time</h2>
+<div style="margin-left: 10px;">
+<h2 mat-dialog-title class="dialog-header">Type your time</h2>
 
-  <mat-dialog-content [formGroup]="form">
-    <mat-form-field>
-      <input matInput
-            formControlName="date"
-             readonly>
+<mat-dialog-content [formGroup]="form">
+
+  <div fxLayout="row" >
+    <mat-form-field fxFlex="25">
+      <input matInput formControlName="date" />
     </mat-form-field>
-    <mat-form-field>
-      <input matInput
-              placeholder="From"
-             formControlName="from">
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput
-            placeholder="Till"
-           formControlName="till">
-</mat-form-field>
+  </div>
+
+  <div fxLayout="row" >
+    <div fxLayout="column" fxFlex="65">
+      <div fxLayout="row" fxLayoutGap="30px">
+      <mat-form-field fxFlex="40">
+        <input matInput placeholder="Start" formControlName="start" />
+      </mat-form-field>
+      <mat-form-field fxFlex="40">
+        <input matInput placeholder="End" formControlName="end" />
+      </mat-form-field>
+    </div>
+    </div>
+    <div fxLayout="column" fxFlex="25">
+    <mat-form-field >
+      <input (click)="getHours()" matInput placeholder="Hours" formControlName="hours" readonly />
+    </mat-form-field>
+    </div>
+  </div>
+
+  <div fxLayout="row">
+    <div fxLayout="column" fxFlex="90">
+      <div fxLayout="row" fxLayoutGap="40px">
       <mat-form-field>
-          <input matInput
-                  placeholder="Description"
-                 formControlName="description">
+        <mat-label>Project</mat-label>
+        <mat-select>
+          <mat-option value="one">First option</mat-option>
+          <mat-option value="two">Second option</mat-option>
+          <mat-option value="three">Third option</mat-option>
+        </mat-select>
       </mat-form-field>
       <mat-form-field>
-        <input matInput
-                placeholder="Hours"
-               formControlName="hours">
-    </mat-form-field>
-   
-  </mat-dialog-content>
-  
-  <mat-dialog-actions>
-      <button class="mat-raised-button" (click)="close()">Close</button>
-      <button class="mat-raised-button mat-primary" (click)="saveMessage()">Save</button>
-  </mat-dialog-actions>
+        <mat-label>Work Type</mat-label>
+        <mat-select>
+          <mat-option value="one">Meeting</mat-option>
+          <mat-option value="two">Programming</mat-option>
+        </mat-select>
+      </mat-form-field>
+      </div>
+    </div>
+    <div fxLayout="column" fxFlex="10">
+
+    </div>
+  </div>
+
+  <div fxLayout="row">
+  <mat-form-field class="textarea-full-width">
+    <textarea matInput placeholder="Description" formControlName="description"> </textarea>
   </mat-form-field>
+  </div>
+
+</mat-dialog-content>
+<div fxLayout="row" style="margin-top: 25px; margin-right: 50px" fxLayoutGap="20px" fxLayoutAlign="end">
+<button mat-raised-button color="basic" (click)="close()">Close</button>
+<button mat-raised-button color="primary" (click)="saveMessage()">Save</button>
+</div>
+</div>
