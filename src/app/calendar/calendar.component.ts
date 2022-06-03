@@ -14,7 +14,7 @@ export class CalendarComponent implements OnInit {
     public dialog: MatDialog,
   ) { }
 
-  calendarOptions: CalendarOptions = {
+  calendarOptions: any = {
     editable: true,
     initialView: 'dayGridMonth',
     dateClick: this.handleDateClick.bind(this),
@@ -25,6 +25,7 @@ export class CalendarComponent implements OnInit {
       center: 'title',
       right: 'dayGridMonth,dayGridWeek,dayGridDay'
     },
+    events: [],
   };
 
   ngOnInit(): void {
@@ -40,6 +41,10 @@ export class CalendarComponent implements OnInit {
     });
     const dialogSubmitSubscription = 
     dialogRef.componentInstance.submitClicked.subscribe(result => {
+    this.calendarOptions.events = this.calendarOptions.events.concat({
+      title: result.description,
+      start: result.date
+    })
     dialogSubmitSubscription.unsubscribe();
   });
   }

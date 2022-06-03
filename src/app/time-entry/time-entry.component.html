@@ -5,7 +5,7 @@
 
   <div fxLayout="row" >
     <mat-form-field fxFlex="25">
-      <input matInput formControlName="date" />
+      <input matInput placeholder="Date" formControlName="date" />
     </mat-form-field>
   </div>
 
@@ -16,7 +16,7 @@
         <input matInput placeholder="Start" formControlName="start" />
       </mat-form-field>
       <mat-form-field fxFlex="40">
-        <input matInput placeholder="End" formControlName="end" />
+        <input matInput placeholder="End" (blur) = "getHours()" formControlName="end" />
       </mat-form-field>
     </div>
     </div>

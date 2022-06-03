@@ -18,8 +18,8 @@ export class TimeEntryComponent implements OnInit {
 
   ngOnInit(): void {
     this.data = this.data.dataKey;
-    console.log(this.data)
     this.form = new FormGroup({
+      id: new FormControl(Math.random()*1000),
       date: new FormControl(this.data.dateStr),
       start: new FormControl(this.getTime()),
       end: new FormControl(''),
@@ -30,7 +30,7 @@ export class TimeEntryComponent implements OnInit {
   }
 
   saveMessage() {
-    this.submitClicked.emit(this.data);
+    this.submitClicked.emit(this.form.value);
     this.dialogRef.close();
   }
   close() {
@@ -46,7 +46,7 @@ export class TimeEntryComponent implements OnInit {
   }
   //returns with an extra 0 in front if the given time is less than 9 
   convertTime(time:any) {
-    return time<9 ?'0'+time:time;
+    return time<10?'0'+time:time;
   }
 
   getHours() {
