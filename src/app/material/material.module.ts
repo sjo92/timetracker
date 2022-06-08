@@ -7,6 +7,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter';
 
 @NgModule({
   imports: [
@@ -16,7 +19,10 @@ import { MatSelectModule } from '@angular/material/select';
     MatDialogModule, FormsModule, ReactiveFormsModule,
     MatInputModule,
     MatButtonModule,
-    MatSelectModule
+    MatSelectModule,
+    MatChipsModule,
+    MatDatepickerModule,
+    MatMomentDateModule
   ],
   exports: [
     MatToolbarModule,
@@ -25,7 +31,13 @@ import { MatSelectModule } from '@angular/material/select';
     MatDialogModule, FormsModule, ReactiveFormsModule,
     MatInputModule,
     MatButtonModule,
-    MatSelectModule
+    MatSelectModule,
+    MatChipsModule,
+    MatDatepickerModule,
+    MatMomentDateModule
+  ],
+  providers: [
+    {provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: {useUtc: true}},
   ]
 })
 export class MaterialModule {}

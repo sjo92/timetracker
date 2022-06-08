@@ -3,6 +3,8 @@ import { CalendarOptions } from '@fullcalendar/angular'; // useful for typecheck
 import {TimeEntryComponent} from '../time-entry/time-entry.component';
 import { MatDialog } from '@angular/material/dialog';
 
+import  { Draggable } from '@fullcalendar/interaction';
+
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
@@ -16,9 +18,11 @@ export class CalendarComponent implements OnInit {
 
   calendarOptions: any = {
     editable: true,
-    initialView: 'dayGridMonth',
+    initialView: 'dayGridWeek',
     dateClick: this.handleDateClick.bind(this),
-    contentHeight: 600,
+    height: 800,
+    contentHeight: 780,
+    aspectRatio: 3,  // see: https://fullcalendar.io/docs/aspectRatio
     weekNumbers: true,
     headerToolbar: {
       left: 'prev,next today',
@@ -26,6 +30,7 @@ export class CalendarComponent implements OnInit {
       right: 'dayGridMonth,dayGridWeek,dayGridDay'
     },
     events: [],
+    droppable: true,
   };
 
   ngOnInit(): void {
@@ -41,9 +46,12 @@ export class CalendarComponent implements OnInit {
     });
     const dialogSubmitSubscription = 
     dialogRef.componentInstance.submitClicked.subscribe(result => {
+      console.log(result);
     this.calendarOptions.events = this.calendarOptions.events.concat({
       title: result.description,
-      start: result.date
+      start: result.date,
+      startTime: result.start,
+      endTime: result.end,
     })
     dialogSubmitSubscription.unsubscribe();
   });

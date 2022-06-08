@@ -11,13 +11,15 @@ export class TimeEntryComponent implements OnInit {
   form!: FormGroup;
   formControl = new FormControl('');
 
+  info;
   @Output() submitClicked = new EventEmitter<any>();
   constructor(public dialogRef: MatDialogRef<TimeEntryComponent>, private fb: FormBuilder,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
 
   ngOnInit(): void {
-    this.data = this.data.dataKey;
+    this.info = this.data.dataKey;
+    console.log(this.info);
     this.form = new FormGroup({
       id: new FormControl(Math.random()*1000),
       date: new FormControl(this.data.dateStr),
